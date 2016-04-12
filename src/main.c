@@ -20,6 +20,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+#define NOSTATE -1
+
 int main(int argc, char **argv) {
   if (argc != 2) {
     fprintf(stderr, "usage: %s PID\n", argv[0]);
@@ -59,16 +61,16 @@ int main(int argc, char **argv) {
     }
   }
 
-  char status = -1;
+  char status = NOSTATE;
   for (size_t i = 1; i < strlen(lineptr); i++) {
     if (isupper(lineptr[i])) {
       status = lineptr[i];
       break;
     }
   }
-  if (status == -1) {
+  if (status == -NOSTATE) {
     fprintf(stderr, "failed to find state character in state field\n");
-    return -1;
+    return 1;
   }
 
   fclose(status_file);
