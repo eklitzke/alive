@@ -54,7 +54,7 @@ int main(int argc, char **argv) {
   char *lineptr = NULL;
   for (size_t i = 0; i < 2; i++) {
     if (getline(&lineptr, &len, status_file) == -1) {
-      fprintf(stderr, "failed to geltine\n");
+      fprintf(stderr, "failed to getline\n");
       return 1;
     }
   }
