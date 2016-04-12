@@ -68,7 +68,7 @@ int main(int argc, char **argv) {
       break;
     }
   }
-  if (status == -NOSTATE) {
+  if (status == NOSTATE) {
     fprintf(stderr, "failed to find state character in state field\n");
     return 1;
   }
