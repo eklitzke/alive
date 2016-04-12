@@ -59,12 +59,16 @@ int main(int argc, char **argv) {
     }
   }
 
-  char status = 0;
+  char status = -1;
   for (size_t i = 1; i < strlen(lineptr); i++) {
     if (isupper(lineptr[i])) {
       status = lineptr[i];
       break;
     }
+  }
+  if (status == -1) {
+    fprintf(stderr, "failed to find state character in state field\n");
+    return -1;
   }
 
   fclose(status_file);
