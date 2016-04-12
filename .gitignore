@@ -1,0 +1,5 @@
+build-aux/
+config.h
+aclocal.m4
+alive
+Makefile
